@@ -1,0 +1,10 @@
+{
+    "hosted-zone:account=747030889765:domainName=tutordraw.io:region=us-east-1": {
+        "Id": "/hostedzone/Z0526705QTZ7X2DZ5FPZ",
+        "Name": "tutordraw.io."
+    },
+    "hosted-zone:account=747030889765:domainName=tutordraw.io:region=ap-northeast-1": {
+        "Id": "/hostedzone/Z0526705QTZ7X2DZ5FPZ",
+        "Name": "tutordraw.io."
+    }
+}
