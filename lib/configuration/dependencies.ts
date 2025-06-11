@@ -4,7 +4,7 @@ export const GITHUB_CONNECTION_ARN =
 export const GITHUB_REPO = "TutorDrawCDK";
 export const GITHUB_OWNER = "TutorDraw";
 export const GITHUB_PACKAGE_BRANCH = "main";
-export const GITHUB_FRONTEND_REPO = "TutorDraw-Frontend";
+export const GITHUB_FRONTEND_REPO = "TutorDrawFrontend";
 
 export const APPLICATION_NAME = "TutorDraw";
 export const DOMAIN_NAME = "tutordraw.io";
