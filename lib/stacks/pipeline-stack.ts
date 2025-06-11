@@ -14,7 +14,6 @@ import {
     ShellStep
 } from "aws-cdk-lib/pipelines";
 import { Construct } from "constructs";
-import { HostedZone } from "aws-cdk-lib/aws-route53";
 
 import {
     APPLICATION_NAME,
@@ -95,20 +94,11 @@ export class PipelineStack extends cdk.Stack {
             }
         });
 
-        // Look up the existing hosted zone for your domain
-        const hostedZone = HostedZone.fromLookup(this, `${APPLICATION_NAME}HostedZone`, {
-            domainName: DOMAIN_NAME // Your domain name
-        });
-
-        // Create the ACM certificate
-        const certificate = new cdk.aws_certificatemanager.Certificate(
+        // Use existing certificate
+        const certificate = cdk.aws_certificatemanager.Certificate.fromCertificateArn(
             this,
             `${APPLICATION_NAME}Certificate`,
-            {
-                domainName: DOMAIN_NAME,
-                subjectAlternativeNames: [`*.${DOMAIN_NAME}`], // Wildcard for all subdomains
-                validation: cdk.aws_certificatemanager.CertificateValidation.fromDns(hostedZone)
-            }
+            "arn:aws:acm:us-east-1:747030889765:certificate/0708b635-0270-49af-96fd-45364394cdfe"
         );
 
         // Export repository URI as output
