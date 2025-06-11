@@ -98,8 +98,14 @@ export class PipelineStack extends cdk.Stack {
         const certificate = cdk.aws_certificatemanager.Certificate.fromCertificateArn(
             this,
             `${APPLICATION_NAME}Certificate`,
-            "arn:aws:acm:us-east-1:747030889765:certificate/0708b635-0270-49af-96fd-45364394cdfe"
+            cdk.Fn.importValue(`${APPLICATION_NAME}-certificate`)
         );
+        // Alternative way to use certificate directly with ARN
+        // const certificate = cdk.aws_certificatemanager.Certificate.fromCertificateArn(
+        //     this,
+        //     `${APPLICATION_NAME}Certificate`,
+        //     "arn:aws:acm:us-east-1:747030889765:certificate/0708b635-0270-49af-96fd-45364394cdfe"
+        // );
 
         // Export repository URI as output
         new cdk.CfnOutput(this, `${APPLICATION_NAME}-certificate`, {
