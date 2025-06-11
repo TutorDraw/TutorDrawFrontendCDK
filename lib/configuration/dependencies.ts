@@ -1,7 +1,7 @@
 // GitHub
 export const GITHUB_CONNECTION_ARN =
     "arn:aws:codeconnections:ap-northeast-1:747030889765:connection/6d2df9ca-9e39-4136-86e1-2348f717cfdb";
-export const GITHUB_REPO = "TutorDrawCDK";
+export const GITHUB_REPO = "TutorDrawFrontendCDK";
 export const GITHUB_OWNER = "TutorDraw";
 export const GITHUB_PACKAGE_BRANCH = "main";
 export const GITHUB_FRONTEND_REPO = "TutorDrawFrontend";
