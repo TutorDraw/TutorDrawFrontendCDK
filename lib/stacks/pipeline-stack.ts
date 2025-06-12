@@ -15,6 +15,7 @@ import {
 } from "aws-cdk-lib/pipelines";
 import { Construct } from "constructs";
 import { HostedZone } from "aws-cdk-lib/aws-route53";
+import * as codebuild from "aws-cdk-lib/aws-codebuild";
 
 import {
     APPLICATION_NAME,
@@ -78,14 +79,13 @@ export class PipelineStack extends cdk.Stack {
             pipelineName: `${APPLICATION_NAME}Pipeline`,
             synth: new ShellStep("Synth", {
                 input: source,
-                commands: [
-                    "npm ci",
-                    "npm run build",
-                    "npx cdk synth -c jwtSecret_dev=$(cat ../dist/jwtSecret_dev.txt) -c jwtSecret_prod=$(cat ../dist/jwtSecret_prod.txt)"
-                ]
+                commands: ["npm ci", "npm run build", "npx cdk synth -c"]
             }),
             role: adminRole,
             codeBuildDefaults: {
+                buildEnvironment: {
+                    buildImage: codebuild.LinuxBuildImage.STANDARD_6_0
+                },
                 rolePolicy: [
                     new PolicyStatement({
                         actions: ["*"],
