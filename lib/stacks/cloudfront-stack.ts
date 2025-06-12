@@ -137,6 +137,7 @@ export class CloudFrontStack extends cdk.Stack {
             `${APPLICATION_NAME}StaticWebsiteDistribution-${stageName}`,
             {
                 comment: `TutorDraw in ${stageName}`,
+                defaultRootObject: "index.html",
                 defaultBehavior: {
                     origin: s3Origin,
                     viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
