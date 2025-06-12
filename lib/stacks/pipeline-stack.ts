@@ -15,7 +15,6 @@ import {
 } from "aws-cdk-lib/pipelines";
 import { Construct } from "constructs";
 import { HostedZone } from "aws-cdk-lib/aws-route53";
-import * as codebuild from "aws-cdk-lib/aws-codebuild";
 
 import {
     APPLICATION_NAME,
@@ -83,9 +82,6 @@ export class PipelineStack extends cdk.Stack {
             }),
             role: adminRole,
             codeBuildDefaults: {
-                buildEnvironment: {
-                    buildImage: codebuild.LinuxBuildImage.STANDARD_6_0
-                },
                 rolePolicy: [
                     new PolicyStatement({
                         actions: ["*"],
