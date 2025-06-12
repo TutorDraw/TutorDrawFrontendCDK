@@ -13,7 +13,7 @@ export const STAGES = [
         staticAssetsBucketName: STATIC_ASSETS_BUCKET_DEV,
         isProd: false,
         apiOriginRegion: Region.US_WEST_2,
-        buildCommand: "npm run build-dev"
+        buildCommand: "pnpm run build-dev"
     },
     {
         stageName: Stage.PROD,
@@ -21,6 +21,6 @@ export const STAGES = [
         staticAssetsBucketName: STATIC_ASSETS_BUCKET_PROD,
         isProd: true,
         apiOriginRegion: Region.AP_NORTHEAST_1,
-        buildCommand: "npm run build"
+        buildCommand: "pnpm run build"
     }
 ];

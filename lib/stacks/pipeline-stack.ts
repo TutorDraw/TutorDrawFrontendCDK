@@ -122,8 +122,7 @@ export class PipelineStack extends cdk.Stack {
 
                 const buildStep = new CodeBuildStep(`Build-FrontEnd-${stageName}`, {
                     input: sourceStep,
-                    installCommands: ["npm install"],
-                    // TODO: add "npm run test" when frontend ready
+                    installCommands: ["npm install -g pnpm", "pnpm install --frozen-lockfile"],
                     commands: [buildCommand],
                     env: {
                         REACT_APP_STAGE: stageName,
