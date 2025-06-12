@@ -15,7 +15,7 @@
         "watch": "tsc -w",
         "test": "jest",
         "cdk": "cdk",
-        "prepare": "husky",
+        "prepare": "husky install",
         "pre-commit": "lint-staged"
     },
     "lint-staged": {
