@@ -79,7 +79,7 @@ export class PipelineStack extends cdk.Stack {
             pipelineName: `${APPLICATION_NAME}Pipeline`,
             synth: new ShellStep("Synth", {
                 input: source,
-                commands: ["npm ci", "npm run build", "npx cdk synth -c"]
+                commands: ["npm ci", "npm run build", "npx cdk synth"]
             }),
             role: adminRole,
             codeBuildDefaults: {
